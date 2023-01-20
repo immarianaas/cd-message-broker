@@ -81,14 +81,15 @@
 A <strong>message broker</strong> is a type of middleware typically used in distributed systems which need EAI (Enterprise Architecture Integration). Many companies are provided with different kinds of software which need to be integrated to achieve the business logic desired. Message brokers come into play to translate the communication between the different processes, allowing the integration of different software even if they have distinct protocols and data serialization methods.
 
 ### Goals
-The goal of this work was to develop a message broker able to connect `producers` and `consumers` through a Pub/Sub protocol and three distring serialization mechanisms: `XML`, `JSON` and `pickle`. This protocol also needed to be designed and implemented over TCP. Furthermore, the message broker should be able to retain messages, so that when a `consumer` subscribes to a topic, it receives the last message post there.
+The goal of this work was to develop a message broker able to connect `producers` and `consumers` through a Pub/Sub protocol and three distinct serialization mechanisms: `XML`, `JSON` and `pickle`. This protocol also needed to be designed and implemented over TCP. Furthermore, the message broker should be able to retain messages, so that when a `consumer` subscribes to a topic, it receives the last message post there.
 
 <strong>Note</strong>: the information presented on both <strong>Information</strong> and <strong>Goals</strong> are described with more detail in the project guide, which is in Portuguese.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="whats_done">What's done</h2>
+
 The message broker we developed fulfills every goal and requirement mentioned above, operating with `raw sockets` and `selectors`.
-Additionally, the broker implements the notion of hierarchical topics: if a `consumer` subscribes to a topic, it is also automatically subscribed to all the its "children" topics. This was acomplished with the implementation of a tree structure.
+Additionally, the broker implements the notion of hierarchical topics: if a `consumer` subscribes to a topic, it is also automatically subscribed to all the its <em>children</em> topics. This was acomplished with the implementation of a tree structure.
 This broker is also prepared to handle multiple connections at the same time, be it `producers` or `consumers`, and they can join or leave the system at any time without problem.
 
 ### Protocol
